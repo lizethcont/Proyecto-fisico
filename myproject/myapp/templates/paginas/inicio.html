@@ -1,0 +1,232 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<section class="hero d-flex flex-column justify-content-center align-items-center" id="home">
+
+    <div class="bg-overlay"></div>
+
+       <div class="container">
+            <div class="row">
+
+                 <div class="col-lg-8 col-md-10 mx-auto col-12">
+                      <div class="hero-text mt-5 text-center">
+
+                            <h6 data-aos="fade-up" data-aos-delay="300">Usted puede ver su estado físico y recibir tips para mejorar su salud</h6>
+
+                            <h1 class="text-white" data-aos="fade-up" data-aos-delay="500">Examen Físico y consejos</h1>
+
+                            <a href="#registrarse" class="btn custom-btn mt-3" data-aos="fade-up" data-aos-delay="600">Comencemos</a>
+
+                            <a href="#graficos" class="btn custom-btn bordered mt-3" data-aos="fade-up" data-aos-delay="700">Gráficos</a>
+                           
+                      </div>
+                 </div>
+
+            </div>
+       </div>
+</section>
+<section class="feature" id="registrarse">
+    <div class="container">
+        <div class="row">
+
+            <div class="d-flex flex-column justify-content-center ml-lg-auto mr-lg-5 col-lg-5 col-md-6 col-12">
+                <h2 class="mb-3 text-white" data-aos="fade-up">Eres nuevo?</h2>
+
+                <h6 class="mb-4 text-white" data-aos="fade-up">Registra todos tus datos, los cuales seran confidenciales</h6>
+
+                <p data-aos="fade-up" data-aos-delay="200">Si, necesitas ayuda puedes contactarte lizcont83@gmail.com.</p>
+
+                <a href="{% url 'calcular_imc' %}" class="btn custom-btn bg-color mt-3" data-aos="fade-up" data-aos-delay="300">Registrarse</a>
+            </div>
+
+            <div class="mr-lg-auto mt-3 col-lg-4 col-md-6 col-12">
+                 <div class="about-working-hours">
+                      <div>
+
+                            <h2 class="mb-4 text-white" data-aos="fade-up" data-aos-delay="500">Fecha y horario limite de registro</h2>
+
+                           <strong class="d-block" data-aos="fade-up" data-aos-delay="600">Sunday : Closed</strong>
+
+                           <strong class="mt-3 d-block" data-aos="fade-up" data-aos-delay="700">Monday - Friday</strong>
+
+                            <p data-aos="fade-up" data-aos-delay="800">7:00 AM - 10:00 PM</p>
+
+                            <strong class="mt-3 d-block" data-aos="fade-up" data-aos-delay="700">Saturday</strong>
+
+                            <p data-aos="fade-up" data-aos-delay="800">6:00 AM - 4:00 PM</p>
+                           </div>
+                      </div>
+                 </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about section" id="graficos" name="graficos">
+    <div class="container">
+         <div class="row">
+
+                 <div class="mt-lg-5 mb-lg-0 mb-4 col-lg-5 col-md-10 mx-auto col-12">
+                     <h2 class="mb-4" data-aos="fade-up" data-aos-delay="300">Hola, puedes seguir los gráficos</h2>
+
+                     <p data-aos="fade-up" data-aos-delay="400"> Ahora, podras ver el rendimiento de los Departamentos y/o Direcciones, segun su IMC </p>
+                     
+                 </div>
+
+                 <div class="ml-lg-auto col-lg-3 col-md-6 col-12" data-aos="fade-up" data-aos-delay="700">
+                    
+                     <div class="team-thumb">
+                        <a href="{% url 'imc-por-edad' %}" class="btn custom-btn bordered mt-3" data-aos="fade-up" data-aos-delay="100">
+                         <img src="{% static 'images/bar-chart.png' %}" class="img-fluid" alt="Trainer">
+                         
+                         <div class="team-info d-flex flex-column">
+                            
+                             <h4 class="mb-1">Dir/Dep</h4>
+                             <h4 class="mb-1">vs IMC</h4>
+                             <span>Segun Anexo F</span>
+                            </a>
+                             
+                         </div>
+                     </div>
+                 </div>
+
+                 
+
+         </div>
+    </div>
+</section>
+
+
+<!-- CLASS -->
+<section class="class section" id="tips" name="tips">
+    <div class="container">
+         <div class="row">
+
+                 <div class="col-lg-12 col-12 text-center mb-5">
+                     <h6 data-aos="fade-up">Obten una mejor salud</h6>
+
+                     <h2 data-aos="fade-up" data-aos-delay="200">Aca hay algunos tips confialbles </h2>
+                  </div>
+
+                 <div class="col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-delay="400">
+                     <div class="class-thumb">
+                         <img src="{% static 'images/class/yoga-class.jpg' %}" class="img-fluid" alt="Class">
+
+                         <div class="class-info">
+                            <a class="fcc-btn" href="https://www.youtube.com/watch?v=a376zRhSXXI">
+                             <h3 class="mb-1">Yoga</h3>
+
+                             <span><strong>Puedes comenzar con</strong> - el primer curso para tonificar tu cuerpo</a>  </span>
+
+                             <p class="mt-3">Para tener mayor resultado puedes recurrrir al los siguientes blogs: <a class="fcc-btn" href="https://siempreyoga.com/blog/">Consulta 1</a>  <a class="fcc-btn" href="https://www.elblogdeyoga.com/">Consulta 2</a></p>
+                         </div>
+                     </div>
+                 </div>
+
+                 <div class="mt-5 mt-lg-0 mt-md-0 col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-delay="500">
+                     <div class="class-thumb">
+                        <a class="fcc-btn" href="https://www.youtube.com/@FisioterapiaLatina">
+                         <img src="{% static 'images/class/crossfit-class.jpg' %}" class="img-fluid" alt="Class">
+
+                         <div class="class-info">
+                             <h3 class="mb-1">Fortalecimiento de huesos y ejercios</h3>
+
+                             <span><strong>Para mayor referencia</strong> - Fisioterapia Latina</span>
+
+
+                             <p class="mt-3">Una gran opcion aprobado por la FDA es   Existen dietas y ejercicios para fortacecer rodillas, huesos etc.</a> </p>
+                         </div>
+                     </div>
+                 </div>
+
+                 <div class="mt-5 mt-lg-0 col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-delay="600">
+                     <div class="class-thumb">
+                        <a class="fcc-btn" href="https://unimeal.com/">
+                         <img src="{% static 'images/class/cardio-class.jpg' %}" class="img-fluid" alt="Class">
+
+                         <div class="class-info">
+                             <h3 class="mb-1">Quieres perder o ganar peso?</h3>
+
+                             <span><strong>Podras realizar recetas</strong> - Con diferentes consejos</span>
+                                
+
+                             <p class="mt-3">En este blog te dara dietas completas segun tu objetivo diario   una aplicación y sitio web que te permite establecer objetivos de pérdida o ganancia de peso, hacer un seguimiento de tu ingesta diaria de calorías y macronutrientes, y conectarte con una comunidad de apoyo..</a></p>
+                         </div>
+                     </div>
+                 </div>
+
+         </div>
+    </div>
+</section>
+
+ <!-- FOOTER -->
+ <footer class="site-footer" id="contacto" name="contacto">
+    <div class="container">
+         <div class="row">
+
+              <div class="ml-auto col-lg-4 col-md-5">
+                  <p class="copyright-text">Copyright &copy; 2023 Podras seguir el ritmo de tu cuerpo.
+                  
+                  <br>Design: </p>
+              </div>
+
+              <div class="d-flex justify-content-center mx-auto col-lg-5 col-md-7 col-12">
+                  <p class="mr-4">
+                      <i class="fa fa-envelope-o mr-1"></i>
+                      <a href="#">lizcont83@gmail.com</a>
+                  </p>
+
+                  <p><i class="fa fa-phone mr-1"></i> +591</p>
+              </div>
+              
+         </div>
+    </div>
+</footer>
+
+
+{% endblock %}
+
+{% block css %}
+  <style>
+    .bg-image {
+      background-image: url('../images/hero-bg.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+  </style>
+   <!-- CSS -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+   <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+ <meta name="description" content="">
+ <meta name="keywords" content="">
+ <meta name="author" content="">
+ <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+ <!--<link rel="stylesheet" href="sistemabol/css/bootstrap.min.css">-->
+ <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+ <!--<link rel="stylesheet" href="sistemabol/css/font-awesome.min.css"> -->
+ <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+ <!--<link rel="stylesheet" href="sistemabol/css/aos.css"> -->
+ <link rel="stylesheet" href="{% static 'css/aos.css' %}">
+
+ <!-- MAIN CSS -->
+ <link rel="stylesheet" href="{% static 'css/tooplate-gymso-style.css' %}">
+ <!--<link rel="stylesheet" href="css/tooplate-gymso-style.css">-->
+
+ <!-- Bootstrap CSS v5.2.1 -->
+ <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+   integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">-->
+
+       <!-- SCRIPTS -->
+   <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+   <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+   <script type="text/javascript" src="{% static 'js/aos.js' %}"></script>
+   <script type="text/javascript" src="{% static 'js/smoothscroll.js' %}"></script>
+   <script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+  <h1>IMC por edad</h1>
+  <canvas id="myChart" width="400" height="100"></canvas>
+  <script src="{% static 'app/chart.min.js' %}"></script>
+  <script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var chart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: [{%for personas in personas %} '{{personas.unidad}}', {% endfor %}],
+            datasets: [{
+                label: 'MASA CORPORAL',
+                data: [{%for personas in personas %} '{{personas.imc}}', {% endfor %}],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+                    'rgba(255, 205, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(201, 203, 207, 0.2)'
+                    ],
+                    borderColor: [
+                    'rgb(255, 99, 132)',
+                    'rgb(255, 159, 64)',
+                    'rgb(255, 205, 86)',
+                    'rgb(75, 192, 192)',
+                    'rgb(54, 162, 235)',
+                    'rgb(153, 102, 255)',
+                    'rgb(201, 203, 207)'
+                    ],
+                    borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+
+    fetch('/imc_por_edad/')
+        .then(response => response.json())
+        .then(data => {
+            data.forEach((item, index) => {
+                chart.data.labels.push(item.unidad);
+                chart.data.datasets[0].data.push(item.imc);
+            });
+            chart.update();
+        });
+</script>
+{% endblock %}

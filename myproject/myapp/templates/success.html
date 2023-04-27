@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block title %}
+Resultados de IMC
+{% endblock %}
+
+{% block css %}
+<style>
+    .resultados {
+    margin: 30px auto;
+    max-width: 800px;
+    }
+
+    table {
+    border-collapse: collapse;
+    margin: 20px 0;
+    width: 100%;
+    }
+
+    th, td {
+    padding: 10px;
+    text-align: center;
+    }
+
+    th {
+    background-color: #eee;
+    font-weight: bold;
+    }
+
+    .imc {
+    font-weight: bold;
+    color: #5cb85c;
+    }
+
+    .estado {
+    font-weight: bold;
+    color: #5cb85c;
+    }
+
+    .mb {
+    font-size: 14px;
+    color: #777;
+    }
+
+    .volver {
+    margin-top: 20px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="resultados">
+    <h2>Resultados de IMC, vea su correo, por favor</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Unidad</th>
+            <th>Grado</th>
+            <th>Índice de masa corporal</th>
+            <th>Estado</th>
+            <th>Metabolismo basal</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for persona in personas %}
+        <tr>
+            <td>{{ persona.nombre }}</td>
+            <td>{{ persona.unidad }}</td>
+            <td>{{ persona.grado }}</td>
+            <td>{{ persona.estado }}</td>
+            <td>{{ persona.imc|floatformat:2 }}</td>
+            <td>{{ persona.metabolismo_basal|floatformat:2 }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="volver"><a href="{% url 'calcular_imc' %}">Volver a calcular</a></div>
+    </div>
+</div>
+{% endblock %}
