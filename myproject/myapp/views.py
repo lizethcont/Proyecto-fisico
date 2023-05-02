@@ -549,13 +549,14 @@ def calcular_flexiones(notas_mujeres_flex, notas_hombres_flex, genero, edad, fle
     calificacion_flexiones = data[rango_edad][flexiones]
     if calificacion_flexiones >= 71:
         calificacion_flexiones = calificacion_flexiones
+    #print(f"calificacion_flexiones: {calificacion_flexiones}")
     return calificacion_flexiones
 
 def calculo_total(calificacion_flexiones, calificacion, calificacion_aerobica):
     # sourcery skip: hoist-similar-statement-from-if, hoist-statement-from-if, move-assign-in-block, remove-unnecessary-cast
 
     calificacion_total = 0
-    calificacion_total= (calificacion_flexiones + calificacion + calificacion_aerobica)/ 3
+    calificacion_total = ((calificacion_flexiones or 0) + (calificacion or 0) + (calificacion_aerobica or 0)) / 3
     if calificacion_total >= 71:
         calificacion_total= int(calificacion_total)
         estado_p = 'APROBADA' 
@@ -580,6 +581,7 @@ def calcular_imc_view(request):   # sourcery skip: extract-method
             calificacion = calcular_nota(notas_mujeres, notas_hombres, persona.genero, persona.edad, persona.abdominales, enviar_resultados)
             calificacion_flexiones = calcular_flexiones(notas_mujeres_flex, notas_hombres_flex, persona.genero, persona.edad, persona.flexiones, enviar_resultados)
             calificacion_aerobica = calcular_prueba(persona.genero, persona.edad, persona.prueba_aerobica)
+            #print(f"calificacion_flexiones: {calificacion_flexiones}")
             calificacion_total, estado_p = calculo_total(calificacion_flexiones, calificacion, calificacion_aerobica)
             imc = calcular_imc(persona.peso, persona.altura)
             estado = determinar_estado(imc, persona.edad)
